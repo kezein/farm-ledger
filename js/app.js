@@ -3,26 +3,19 @@ const RPC_URL = "https://soroban-testnet.stellar.org";
 
 let walletAddress = null;
 
-// Wait for Freighter to inject then try to get it
-function getFreighter() {
-  return window.freighterApi || window.freighter || window.stellar;
-}
-
 async function connectWallet() {
-  // Wait a bit for extension to inject
-  await new Promise(r => setTimeout(r, 500));
-  
-  const api = getFreighter();
-  console.log("Freighter API found:", api);
-
-  if (!api) {
-    alert("Freighter not detected! Try: \n1. Refresh the page \n2. Make sure Freighter is enabled \n3. Try opening Freighter extension first then connect");
-    return;
-  }
-
   try {
-    await api.requestAccess();
-    walletAddress = await api.getPublicKey();
+    // New Freighter API detection
+    const freighter = window.freighter || window.freighterApi;
+    
+    if (!freighter) {
+      alert("Freighter not detected! Please make sure Freighter extension is installed and enabled in Chrome.");
+      return;
+    }
+
+    await freighter.requestAccess();
+    walletAddress = await freighter.getPublicKey();
+
     document.getElementById("walletAddress").innerText = "Connected: " + walletAddress;
     document.getElementById("connectBtn").innerText = "✅ Wallet Connected";
     loadTransactions();
@@ -75,14 +68,13 @@ async function addTransaction() {
       .build();
 
     const preparedTx = await server.prepareTransaction(tx);
-    const api = getFreighter();
-    const signedXDR = await api.signTransaction(
+    const freighter = window.freighter || window.freighterApi;
+    const signedXDR = await freighter.signTransaction(
       preparedTx.toXDR(),
       { networkPassphrase: Networks.TESTNET }
     );
 
-    const { TransactionBuilder: TB, Networks: N } = StellarSdk;
-    const signedTx = TB.fromXDR(signedXDR, N.TESTNET);
+    const signedTx = StellarSdk.TransactionBuilder.fromXDR(signedXDR, Networks.TESTNET);
     await server.sendTransaction(signedTx);
 
     document.getElementById("status").innerText = "✅ Transaction recorded on blockchain!";
