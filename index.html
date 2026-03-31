@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farm Ledger</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f0;
+      color: #333;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 10px;
+    }
+    p.subtitle {
+      text-align: center;
+      color: #666;
+      margin-bottom: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 { color: #2e7d32; margin-bottom: 15px; }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover { background: #1b5e20; }
+    #status {
+      text-align: center;
+      margin: 10px 0;
+      font-weight: bold;
+      color: #2e7d32;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th {
+      background: #2e7d32;
+      color: white;
+      padding: 10px;
+      text-align: left;
+    }
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+    tr:hover { background: #f9f9f9; }
+    #connectBtn {
+      background: #1565c0;
+      margin-bottom: 20px;
+    }
+    #connectBtn:hover { background: #0d47a1; }
+    #walletAddress {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌾 Farm Ledger</h1>
+  <p class="subtitle">Transparent crop transaction records on the Stellar blockchain</p>
+
+  <div class="card">
+    <button id="connectBtn" onclick="connectWallet()">Connect Freighter Wallet</button>
+    <p id="walletAddress">Not connected</p>
+  </div>
+
+  <div class="card">
+    <h2>Record a Transaction</h2>
+    <input type="text" id="farmer" placeholder="Farmer Name" />
+    <input type="text" id="crop" placeholder="Crop Type (e.g. Rice, Corn)" />
+    <input type="number" id="quantity" placeholder="Quantity (kg)" />
+    <input type="number" id="price" placeholder="Price per kg" />
+    <input type="date" id="date" />
+    <button onclick="addTransaction()">Submit Transaction</button>
+    <p id="status"></p>
+  </div>
+
+  <div class="card">
+    <h2>Transaction Records</h2>
+    <button onclick="loadTransactions()" style="margin-bottom:15px;">Refresh Records</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Farmer</th>
+          <th>Crop</th>
+          <th>Qty (kg)</th>
+          <th>Price</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="txTable">
+        <tr><td colspan="5" style="text-align:center">No records yet</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/stellar-sdk/12.3.0/stellar-sdk.min.js"></script>
+  <script>
+    // Inline Freighter detection — waits for extension to inject
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        console.log("freighter:", typeof window.freighter);
+        console.log("freighterApi:", typeof window.freighterApi);
+      }, 1000);
+    });
+  </script>
+  <script src="js/app.js"></script>
+</body>
+</html>
