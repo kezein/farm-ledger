@@ -1,19 +1,36 @@
 # farm-ledger
+PROJECT NAME
+AniLedger
 
-🌾 Farm Ledger: Decentralized Agricultural Management
-Farm Ledger is a blockchain-based accounting and supply chain solution designed to bring transparency and immutable record-keeping to the agricultural sector. By leveraging smart contracts, it allows farmers, distributors, and retailers to track crop lifecycles, log financial transactions, and verify the origin of produce.
+PROBLEM
+Small-scale rice and vegetable farmers in rural Philippine provinces lose up to 30% of their income because local middlemen verbally dictate prices and leave unpaid balances, leaving farmers with no verifiable proof to demand full payment.
 
-🔭 Vision
-To empower small-to-medium scale farmers with enterprise-grade financial tools, eliminating the "middleman" trust gap and providing a verifiable credit history through on-chain data.
+SOLUTION
+Farmers and buyers agree on a crop weight and price via a simple mobile web app, generating an immutable, timestamped Soroban smart contract record that serves as permanent, undeniable proof of the transaction.
 
-🚀 Key Features
-Immutable Crop Logging: Record planting dates, fertilizer usage, and harvest yields that cannot be tampered with.
+STELLAR FEATURES USED
 
-Financial Ledger: Track sales and operational expenses directly tied to specific crop batches.
+Soroban smart contracts
 
-Supply Chain Provenance: Generate unique IDs for produce batches to allow end-consumers to verify origin.
+USDC transfers (optional for instant settlement)
 
-Role-Based Access: Distinct permissions for Farmers (data entry), Auditors (verification), and Buyers (procurement).
+TARGET USERS
+
+Who: Smallholder farmers (often unbanked) and regional crop traders/middlemen.
+
+Where: Agricultural provinces in the Philippines (e.g., Nueva Ecija, Benguet).
+
+Why they care: Farmers want guaranteed proof of what they are owed; honest traders want to build a reputation of trust to secure consistent suppliers.
+
+CORE FEATURE (MVP)
+Trader inputs "500kg Rice at 20 PHP/kg" into the web app → Farmer reviews on their phone and clicks "Sign/Approve" → Soroban contract executes, storing the agreement on-chain → Both screens instantly update with a verified "Transaction Receipt" ID.
+
+WHY THIS WINS
+This perfectly fits a hackathon because the MVP is highly focused and achievable within 48 hours. Judges will find it compelling because it uses blockchain not for speculation, but to solve a massive, real-world exploitation issue in the local Southeast Asian agricultural economy using Stellar's low-cost network.
+
+OPTIONAL EDGE
+
+Offline / low-connectivity support: Allow farmers to approve the transaction via a standard SMS text, which a local backend oracle then pushes to the Soroban smart contract.
 
 📂 Project Structure
 
