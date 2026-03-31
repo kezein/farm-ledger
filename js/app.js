@@ -5,16 +5,18 @@ let walletAddress = null;
 
 async function connectWallet() {
   try {
-    // New Freighter API detection
-    const freighter = window.freighter || window.freighterApi;
-    
-    if (!freighter) {
-      alert("Freighter not detected! Please make sure Freighter extension is installed and enabled in Chrome.");
+    if (!window.freighter) {
+      alert("Freighter not detected! Please make sure it is installed and enabled in Chrome.");
       return;
     }
 
-    await freighter.requestAccess();
-    walletAddress = await freighter.getPublicKey();
+    const isConnected = await window.freighter.isConnected();
+    console.log("isConnected:", isConnected);
+
+    await window.freighter.requestAccess();
+    const result = await window.freighter.getAddress();
+    console.log("getAddress result:", result);
+    walletAddress = result.address;
 
     document.getElementById("walletAddress").innerText = "Connected: " + walletAddress;
     document.getElementById("connectBtn").innerText = "✅ Wallet Connected";
@@ -68,13 +70,12 @@ async function addTransaction() {
       .build();
 
     const preparedTx = await server.prepareTransaction(tx);
-    const freighter = window.freighter || window.freighterApi;
-    const signedXDR = await freighter.signTransaction(
+    const { signedTxXdr } = await window.freighter.signTransaction(
       preparedTx.toXDR(),
       { networkPassphrase: Networks.TESTNET }
     );
 
-    const signedTx = StellarSdk.TransactionBuilder.fromXDR(signedXDR, Networks.TESTNET);
+    const signedTx = StellarSdk.TransactionBuilder.fromXDR(signedTxXdr, Networks.TESTNET);
     await server.sendTransaction(signedTx);
 
     document.getElementById("status").innerText = "✅ Transaction recorded on blockchain!";
