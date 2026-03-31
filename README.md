@@ -24,7 +24,8 @@ Using **Stellar's Soroban smart contracts**, AniLedger allows farmers and buyers
 
 ---
 ### SAMPLE SITE
-<img width="1820" height="1009" alt="image" src="https://github.com/user-attachments/assets/714a8f0a-3b97-4a94-8921-56e87aaaa60d" />
+<img width="1823" height="1013" alt="image" src="https://github.com/user-attachments/assets/4eeb1efc-fe94-4b8c-bbd5-d091d3d3f0f9" />
+
 
 ### 📂 Project Structure
 
