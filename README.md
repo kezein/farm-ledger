@@ -16,20 +16,9 @@ Supply Chain Provenance: Generate unique IDs for produce batches to allow end-co
 Role-Based Access: Distinct permissions for Farmers (data entry), Auditors (verification), and Buyers (procurement).
 
 📂 Project Structure
-A clean, modular structure following industry standards (Hardhat/Foundry style):
 
-Plaintext
-.
-├── contracts/            # Solidity Smart Contracts
-│   ├── FarmLedger.sol    # Main logic for ledger and supply chain
-│   ├── AccessControl.sol # Role management
-│   └── Libs/             # Custom structs and logic libraries
-├── scripts/              # Deployment and interaction scripts
-├── test/                 # Comprehensive unit tests
-├── README.md             # Project documentation
-└── hardhat.config.js     # Network and compiler configurations
-⛓️ Deployed Contract Details
-The contract is currently live on the [Insert Network Name, e.g., Sepolia/Polygon] Testnet.
+<img width="425" height="478" alt="image" src="https://github.com/user-attachments/assets/e83225b1-8da1-49e3-a476-8c9d767baf3a" />
+
 
 Contract ID: CD7KVIAGEMJCOZAPW23IWQLGTKGZXY2QS3AN7WPAOO4PB7DQERTDD6BY
 
