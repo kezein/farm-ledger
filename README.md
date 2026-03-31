@@ -29,17 +29,22 @@ Using **Stellar's Soroban smart contracts**, AniLedger allows farmers and buyers
 
 ### 📂 Project Structure
 
-.
-├── js/                   # Frontend Logic
-│   └── app.js            # Stellar SDK & UI interaction logic
-├── src/                  # Smart Contract Source (Rust)
-│   ├── lib.rs            # Core Soroban contract logic
-│   └── test.rs           # Contract unit tests
-├── index.html            # Web interface (Frontend)
-├── Cargo.toml            # Rust/Soroban manifest & dependencies
-├── LICENSE               # Project license
-└── README.md             # Project documentation
+### 📂 Project Structure
 
+```
+.
+├── js/                   # Frontend Application Logic
+│   └── app.js            # Stellar SDK integration & UI event handling
+├── src/                  # Soroban Smart Contract (Rust)
+│   ├── lib.rs            # Core ledger logic & transaction functions
+│   └── test.rs           # Automated unit tests for contract validation
+├── target/               # Compiled Wasm binaries (Build output)
+├── .gitignore            # Specifies files to ignore (e.g., /target)
+├── Cargo.toml            # Rust manifest and contract dependencies
+├── index.html            # Main User Interface (DApp)
+├── LICENSE               # Open-source licensing
+└── README.md             # Project documentation and setup guide
+```
 📂 Project Structure
 
 <img width="425" height="478" alt="image" src="https://github.com/user-attachments/assets/e83225b1-8da1-49e3-a476-8c9d767baf3a" />
