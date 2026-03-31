@@ -55,7 +55,7 @@ $$Total Payment = Quantity \times UnitPrice$$
 
 ---
 
-## Optional Edge: Local Anchor Integration
+### Optional Edge: Local Anchor Integration
 This project is designed to integrate with **Stellar Anchors (like Coins.ph/PHPC)**. 
 **The Enhancement:** Beyond just logging data, the platform allows for **Pre-Harvest Financing**. A cooperative can send **PHPC (Philippine Peso Stablecoin)** to an escrow contract, which is released to the farmer automatically once the harvest weight is logged and verified on-chain.
 
@@ -127,14 +127,14 @@ All 5 tests pass:
 - ✅ Empty state: returns empty list with no transactions
 
 
-## 🔮 Future Improvements
+## Future Improvements
 
 - Add farmer wallet verification for authenticated submissions
 - SMS-based input system for farmers with limited media literacy
 - Barangay cooperative officer portal for assisted data entry
 - Mobile app with Filipino language support
 
-## 👩‍💻 Developer
+## Developer
 
 Built by Kezia Lorein Villegas for the RiseIn Stellar Philippines UniTour Bootcamp — March 2026
 
