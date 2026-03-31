@@ -41,7 +41,7 @@ $$Total Payment = Quantity \times UnitPrice$$
 
 ---
 
-### Key Features
+## Key Features
 *   **Immutable Transaction Logging:** Records crop type, quantity, price, and date on the Stellar ledger.
 *   **Dual Verification:** Both the farmer and the buyer must "sign" (approve) the transaction for it to be finalized.
 *   **Permanent Proof of Sale:** Farmers maintain a lifetime history of sales, which can be used as a verifiable financial record for loans.
@@ -49,22 +49,22 @@ $$Total Payment = Quantity \times UnitPrice$$
 
 ---
 
-### Why This Wins
+## Why This Wins
 
 *   This project bridges the gap between rural agriculture and global finance by providing unbanked Filipino farmers with an immutable "Proof of Productivity" on Stellar, turning physical harvests into verifiable digital assets for credit-building. It perfectly aligns with Stellar’s mission of financial inclusion by using Soroban smart contracts to create a scalable, low-cost ledger that is ready to integrate with local anchors like PHPC for instant, real-world utility.
 
 ---
 
-### Optional Edge: Local Anchor Integration
+## Optional Edge: Local Anchor Integration
 This project is designed to integrate with **Stellar Anchors (like Coins.ph/PHPC)**. 
 **The Enhancement:** Beyond just logging data, the platform allows for **Pre-Harvest Financing**. A cooperative can send **PHPC (Philippine Peso Stablecoin)** to an escrow contract, which is released to the farmer automatically once the harvest weight is logged and verified on-chain.
 
 ---
-### SAMPLE SITE
+## SAMPLE SITE
 <img width="1825" height="1009" alt="image" src="https://github.com/user-attachments/assets/9d149314-c828-452d-951f-cf10642322f2" />
 
 
-### 📂 Project Structure
+## 📂 Project Structure
 
 ```
 .
@@ -103,7 +103,7 @@ This project is designed to integrate with **Stellar Anchors (like Coins.ph/PHPC
 <img width="1815" height="997" alt="Screenshot 2026-03-31 165608" src="https://github.com/user-attachments/assets/c7cf9bae-13ea-4145-af6d-c1c697ddbedd" />
 <img width="1853" height="994" alt="Screenshot 2026-03-31 165638" src="https://github.com/user-attachments/assets/92efd37d-af9d-44b9-9491-0812c8465eac" />
 
-### Stellar Features Used
+## Stellar Features Used
 
 *   **Soroban Smart Contracts:** Used to implement the core agreement logic and manage the decentralized state storage for all farm transactions.
 *   **Custom Assets (Planned):** Future integration for issuing "Digital Harvest Receipts" as unique, verifiable tokens on the Stellar network.
