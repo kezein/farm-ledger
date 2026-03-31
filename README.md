@@ -1,36 +1,43 @@
 # farm-ledger
-PROJECT NAME
-AniLedger
+# 🌾 AniLedger: Decentralized Farm Transaction Ledger
 
-PROBLEM
-Small-scale rice and vegetable farmers in rural Philippine provinces lose up to 30% of their income because local middlemen verbally dictate prices and leave unpaid balances, leaving farmers with no verifiable proof to demand full payment.
+**AniLedger** is a blockchain-based transparency tool designed for small-scale farmers in the Philippines. It eliminates the "middleman trust gap" by providing an immutable record of every crop sale, ensuring farmers are paid fairly and have a verifiable transaction history.
 
-SOLUTION
-Farmers and buyers agree on a crop weight and price via a simple mobile web app, generating an immutable, timestamped Soroban smart contract record that serves as permanent, undeniable proof of the transaction.
+---
 
-STELLAR FEATURES USED
+### 🔭 Vision
+"Empowering Filipino farmers with blockchain technology—every harvest sale recorded permanently, transparently, and fairly. No more cheating, no more lost records."
 
-Soroban smart contracts
+### ❌ The Problem
+Small-scale rice and vegetable farmers in rural provinces often lose significant income because local middlemen verbally dictate prices and leave unpaid balances. Without a physical or digital trail, farmers have no way to demand full payment or prove their creditworthiness to banks.
 
-USDC transfers (optional for instant settlement)
+### ✅ The Solution
+Using **Stellar's Soroban smart contracts**, AniLedger allows farmers and buyers to log transactions (crop type, weight, and price) on-chain. This creates a "Digital Receipt" that cannot be altered, deleted, or denied by either party.
 
-TARGET USERS
+---
 
-Who: Smallholder farmers (often unbanked) and regional crop traders/middlemen.
+### 🚀 Key Features
+*   **Immutable Transaction Logging:** Records crop type, quantity, price, and date on the Stellar ledger.
+*   **Dual Verification:** Both the farmer and the buyer must "sign" (approve) the transaction for it to be finalized.
+*   **Permanent Proof of Sale:** Farmers maintain a lifetime history of sales, which can be used as a verifiable financial record for loans.
+*   **Low-Cost Operation:** Leverages Stellar’s near-zero transaction fees, making it viable for even the smallest harvest.
 
-Where: Agricultural provinces in the Philippines (e.g., Nueva Ecija, Benguet).
+---
+### SAMPLE SITE
+<img width="1820" height="1009" alt="image" src="https://github.com/user-attachments/assets/714a8f0a-3b97-4a94-8921-56e87aaaa60d" />
 
-Why they care: Farmers want guaranteed proof of what they are owed; honest traders want to build a reputation of trust to secure consistent suppliers.
+### 📂 Project Structure
 
-CORE FEATURE (MVP)
-Trader inputs "500kg Rice at 20 PHP/kg" into the web app → Farmer reviews on their phone and clicks "Sign/Approve" → Soroban contract executes, storing the agreement on-chain → Both screens instantly update with a verified "Transaction Receipt" ID.
-
-WHY THIS WINS
-This perfectly fits a hackathon because the MVP is highly focused and achievable within 48 hours. Judges will find it compelling because it uses blockchain not for speculation, but to solve a massive, real-world exploitation issue in the local Southeast Asian agricultural economy using Stellar's low-cost network.
-
-OPTIONAL EDGE
-
-Offline / low-connectivity support: Allow farmers to approve the transaction via a standard SMS text, which a local backend oracle then pushes to the Soroban smart contract.
+.
+├── js/                   # Frontend Logic
+│   └── app.js            # Stellar SDK & UI interaction logic
+├── src/                  # Smart Contract Source (Rust)
+│   ├── lib.rs            # Core Soroban contract logic
+│   └── test.rs           # Contract unit tests
+├── index.html            # Web interface (Frontend)
+├── Cargo.toml            # Rust/Soroban manifest & dependencies
+├── LICENSE               # Project license
+└── README.md             # Project documentation
 
 📂 Project Structure
 
@@ -45,5 +52,30 @@ Network: Ethereum Sepolia
 <img width="1815" height="997" alt="Screenshot 2026-03-31 165608" src="https://github.com/user-attachments/assets/c7cf9bae-13ea-4145-af6d-c1c697ddbedd" />
 <img width="1853" height="994" alt="Screenshot 2026-03-31 165638" src="https://github.com/user-attachments/assets/92efd37d-af9d-44b9-9491-0812c8465eac" />
 
+### 🛠️ Stellar Features Used
+
+*   **Soroban Smart Contracts:** Used to implement the core agreement logic and manage the decentralized state storage for all farm transactions.
+*   **Custom Assets (Planned):** Future integration for issuing "Digital Harvest Receipts" as unique, verifiable tokens on the Stellar network.
+*   **Trustlines:** Utilized to ensure the secure and compliant handling of payments when settling transactions via **USDC** or other stablecoins.
+
+---
+
+### 📖 Core Logic Overview
+
+The smart contract is built around a robust `Transaction` struct. To ensure maximum security and mutual agreement:
+
+1.  **State Management:** A transaction is initialized in a `Pending` state.
+2.  **Dual-Authorization:** The record only moves to the `Completed` state once both the `farmer_address` and the `buyer_address` have successfully invoked the approval function.
+3.  **Financial Accuracy:** The contract automatically calculates the settlement value on-chain to prevent manual entry errors:
+
+$$Total Payment = Quantity \times UnitPrice$$
+
+---
+
+### 🏆 Why This Wins (Hackathon Criteria)
+
+*   **Real-World Impact:** Directly addresses the "middleman" exploitation and lack of financial records affecting millions of Filipino farmers.
+*   **Stellar-Centric:** Specifically engineered to take advantage of Stellar’s **ultra-low fees** and **sub-second finality**, making micro-ledger entries economically feasible.
+*   **Demo-Ready:** Features a streamlined, end-to-end flow from "Input Sale" to "On-Chain Receipt" that can be fully demonstrated to judges in **under 2 minutes**.
 
 
