@@ -5,18 +5,18 @@
 
 ---
 
-### 🔭 Vision
+### Vision
 "Empowering Filipino farmers with blockchain technology—every harvest sale recorded permanently, transparently, and fairly. No more cheating, no more lost records."
 
-### ❌ The Problem
+### The Problem
 Small-scale rice and vegetable farmers in rural provinces often lose significant income because local middlemen verbally dictate prices and leave unpaid balances. Without a physical or digital trail, farmers have no way to demand full payment or prove their creditworthiness to banks.
 
-### ✅ The Solution
+### The Solution
 Using **Stellar's Soroban smart contracts**, AniLedger allows farmers and buyers to log transactions (crop type, weight, and price) on-chain. This creates a "Digital Receipt" that cannot be altered, deleted, or denied by either party.
 
 ---
 
-### 🚀 Key Features
+### Key Features
 *   **Immutable Transaction Logging:** Records crop type, quantity, price, and date on the Stellar ledger.
 *   **Dual Verification:** Both the farmer and the buyer must "sign" (approve) the transaction for it to be finalized.
 *   **Permanent Proof of Sale:** Farmers maintain a lifetime history of sales, which can be used as a verifiable financial record for loans.
